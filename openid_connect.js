@@ -241,6 +241,8 @@ function validateIdToken(r) {
         validToken = false;
     }
 
+    newSession = !r.variables.refresh_token || r.variables.refresh_token == "-";
+
     // If we receive a nonce in the ID Token then we will use the auth_nonce cookies
     // to check that the JWT can be validated as being directly related to the
     // original request by this client. This mitigates against token replay attacks.
